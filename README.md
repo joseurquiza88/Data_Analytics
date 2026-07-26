@@ -1,52 +1,73 @@
-## 📊 Proyecto de Data Analytics (end-to-end)
+# 📊 Sistema de Integración y Análisis de Información Financiera
 
-La idea de este proyecto es recorrer todo el proceso de análisis de datos, desde el planteo de un problema hasta la comunicación de resultados.
+Este proyecto tiene como objetivo desarrollar un sistema para integrar, procesar y analizar información financiera y contable de una empresa.
+
+### 🎯 Objetivos particulares
+
+- Extraer información desde diferentes fuentes.
+- Procesar y limpiar los datos utilizando Python.
+- Automatizar la lectura de facturas, tickets y resúmenes bancarios.
+- Centralizar la información en una base de datos.
+- Integrar y relacionar datos financieros.
+- Analizar la información mediante SQL.
+- Crear dashboards interactivos en Power BI.
+
+### 📂 Fuentes de información
+
+- 🧾 Facturas y tickets en imágenes.
+- 🏦 Resúmenes bancarios en PDF.
+- 📑 Información contable.
+
+El objetivo es transformar esta información dispersa en datos estructurados, centralizados y analizables.
+
+```text
+Facturas / Tickets ──┐
+                     │
+Resúmenes bancarios ─┼──► Python / ETL ──► PostgreSQL ──► Power BI
+                     │
+Datos contables ─────┘
+```
+
+### 🔄 Flujo del proyecto
+
+```text
+Fuentes de información
+        ↓
+Extracción
+        ↓
+Limpieza y transformación
+        ↓
+Validación
+        ↓
+Base de datos
+        ↓
+Análisis
+        ↓
+Power BI
+```
 
 ---
-### 🔹 Etapas del proyecto
 
-1. **Planteo del problema**
-   - Definir una pregunta o problema con enfoque “de negocio”
+### 🛠️ Tecnologías
 
-2. **Carga y exploración inicial en Python**
-   - Importar los datos  
-   - Hacer una primera exploración para entender la estructura y calidad  
+- Python
+- Pandas
+- OpenCV
+- Tesseract OCR
+- pdfplumber
+- SQL
+- PostgreSQL
+- Power BI
+- Git / GitHub
 
-3. **Modelado y EDA en Python**
-   - Limpieza y preparación de los datos  
-   - Análisis exploratorio (EDA) para detectar patrones o insights  
-   - Preparar los datos para trabajarlos en SQL  
+### 📌 Estado del proyecto
 
-4. **Análisis en SQL**
-   - Cargar los datos en una base  
-   - Escribir queries para responder preguntas específicas  
-   - Trabajar con agregaciones, joins y métricas  
+🚧 **En desarrollo**
 
-5. **Dashboard en Power BI**
-   - Crear visualizaciones interactivas  
-   - Armar un dashboard que resuma los principales resultados  
-   - Mostrar métricas clave de forma clara  
+Actualmente se están desarrollando los procesos de:
 
-6. **Conclusiones**
-   - Resumir los hallazgos más importantes  
-   - Traducir los resultados a insights útiles  
-
-7. **Reporte y presentación**
-   - Documentar el proceso  
-   - Armar una presentación simple para comunicar los resultados  
-
-8. **Repositorio en GitHub**
-   - Subir el proyecto completo  
-   - Incluir código, queries, notebooks y dashboard
-
-
-## 🛠️ Herramientas utilizadas
-
-- **Python (Jupyter Notebook)** para exploración, limpieza y análisis de datos  
-- **SQL (SQL Workbench)** para consultas y manejo de bases de datos  
-- **Power BI** para visualización y creación de dashboards interactivos  
-- **GitHub** para versionado y documentación del proyecto
-
-
-<img width="500" height="550" alt="image" src="https://github.com/user-attachments/assets/2f60719e-0eaf-4cb3-ac8a-6c48cdffa551" />
-
+- Extracción de información desde facturas y tickets mediante OCR.
+- Extracción de movimientos desde resúmenes bancarios en PDF.
+- Integración de información contable.
+- Diseño de la base de datos central.
+- Desarrollo de dashboards en Power BI.
