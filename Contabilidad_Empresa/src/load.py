@@ -20,25 +20,15 @@ def cargar_movimientos(df, engine):
 
     with engine.connect() as conexion:
 
-        resultado = conexion.execute(
-            text(consulta),
-            {"archivo": archivo}
-        )
-
+        resultado = conexion.execute(text(consulta),{"archivo": archivo})
         existe = resultado.scalar()
 
     if existe > 0:
-        print(f"⚠️ Archivo ya cargado: {archivo}")
+        print(f"Archivo ya cargado: {archivo}")
         return False
 
-    df.to_sql(
-        "movimientos_bancarios",
-        engine,
-        if_exists="append",
-        index=False
-    )
-
-    print(f"✅ Archivo cargado correctamente: {archivo}")
+    df.to_sql("movimientos_bancarios", engine, if_exists="append", index=False)
+    print(f"Archivo cargado correctamente: {archivo}")
     return True
 
 #Funcion para hacer consultas

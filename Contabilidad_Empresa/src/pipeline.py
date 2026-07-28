@@ -51,8 +51,8 @@ def main():
 
         # Transformacion
         df = transformar_movimientos(df)
+        print(df.columns.tolist())
         validar_dataframe(df)
-        # Load
         # Load
         cargado = cargar_movimientos(df, engine)
 
