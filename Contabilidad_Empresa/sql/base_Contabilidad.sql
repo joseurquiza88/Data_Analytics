@@ -47,7 +47,7 @@ WHERE table_name = 'movimientos_bancarios';
 
 -- Para hacer pruebas
 DELETE FROM movimientos_bancarios
-WHERE EXTRACT(YEAR FROM fecha) = 2026;
+WHERE EXTRACT(YEAR FROM fecha) = 2025;
 
 DELETE FROM movimientos_bancarios
 WHERE archivo_origen = '01-2026_banco.pdf'
