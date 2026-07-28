@@ -1,12 +1,70 @@
 
-#Objetivo: setar el orquestador
+# Objetivo: setar el orquestador
+# Pipeline completo de carga de resumenes bancarios 
+# Objetivo de la funcion:
+# - Buscar todos los PDF de la carpeta raw
+# - Extraer los movimientos
+# - Validar el resumen
+# - Transformar los datos
+# - Cargar a PostgreSQL
+# - Mostrar un resumen del proceso
+
+
+from pathlib import Path
 from conexion import engine
-from extract import leer_csv
+from extract import extraer_movimientos_pdf
 from transform import transformar_movimientos
 from load import cargar_movimientos
 
-ruta = "data/raw/movimientos.csv"
-df = leer_csv(ruta)
-df = transformar_movimientos(df)
-cargar_movimientos(df, engine)
-print("Proceso terminado")
+
+# Carpeta donde se encuentran los resúmenes bancarios
+CARPETA_PDF = Path("data/raw/resumenes_bancarios")
+
+def main():
+    # Buscar todos los PDF
+    pdfs = sorted(CARPETA_PDF.glob("*.pdf"))
+    if not pdfs:
+        print("No se encontraron archivos PDF para procesar.")
+        return
+
+    archivos_ok = 0
+    archivos_error = 0
+
+    print("=" * 60)
+    print("INICIO DEL PROCESO")
+    print("=" * 60)
+
+    # Recorrer todos los PDF encontrados
+    for pdf in pdfs:
+
+        print(f"\nProcesando archivo: {pdf.name}")
+        # Extraccion
+        df, validacion = extraer_movimientos_pdf(pdf)
+        print(f"Movimientos encontrados: {len(df)}")
+
+        # Validacion
+        if not validacion:
+            print("El archivo no pasó la validación.")
+            archivos_error += 1
+            continue
+
+        # Transformacion
+        df = transformar_movimientos(df)
+
+        # Load
+        cargar_movimientos(df, engine)
+
+        print("Archivo cargado correctamente.")
+        archivos_ok += 1
+
+    # Resumen final del procesamiento
+    print("\n" + "=" * 60)
+    print("Resumen del proceso")
+    print("=" * 60)
+    print(f"Archivos encontrados : {len(pdfs)}")
+    print(f"Archivos cargados    : {archivos_ok}")
+    print(f"Archivos con error   : {archivos_error}")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()

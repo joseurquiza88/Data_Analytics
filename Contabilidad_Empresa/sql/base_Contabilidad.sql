@@ -45,4 +45,26 @@ SELECT
 FROM information_schema.columns
 WHERE table_name = 'movimientos_bancarios';
 
+-- Para hacer pruebas
+DELETE FROM movimientos_bancarios
+WHERE EXTRACT(YEAR FROM fecha) = 2026;
 
+DELETE FROM movimientos_bancarios
+WHERE archivo_origen = '01-2026_banco.pdf'
+
+
+SELECT MIN(mes) AS mes_inicio, MAX(mes) AS mes_fin
+FROM movimientos_bancarios
+
+SELECT COUNT(*) 
+FROM movimientos_bancarios;
+
+SELECT DISTINCT archivo_origen
+FROM movimientos_bancarios;
+
+SELECT current_database();
+
+SELECT *
+FROM movimientos_bancarios
+ORDER BY fecha_carga DESC
+LIMIT 10;
