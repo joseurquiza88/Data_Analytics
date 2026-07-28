@@ -68,3 +68,15 @@ SELECT *
 FROM movimientos_bancarios
 ORDER BY fecha_carga DESC
 LIMIT 10;
+
+SELECT mes, COUNT(*) AS cantidad_movimientos
+FROM movimientos_bancarios
+GROUP BY mes
+ORDER BY mes;
+
+SELECT COUNT(*) 
+FROM movimientos_bancarios
+WHERE fecha IS NULL;
+
+SELECT COUNT(*)
+FROM movimientos_bancarios;

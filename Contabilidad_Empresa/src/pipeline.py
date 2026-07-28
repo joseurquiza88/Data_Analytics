@@ -15,7 +15,7 @@ from conexion import engine
 from extract import extraer_movimientos_pdf
 from transform import transformar_movimientos
 from load import cargar_movimientos
-
+from tests import validar_dataframe
 
 # Carpeta donde se encuentran los resúmenes bancarios
 CARPETA_PDF = Path("data/raw/resumenes_bancarios")
@@ -28,6 +28,7 @@ def main():
         return
 
     archivos_ok = 0
+    archivos_omitidos = 0
     archivos_error = 0
 
     print("=" * 60)
@@ -50,12 +51,15 @@ def main():
 
         # Transformacion
         df = transformar_movimientos(df)
-
+        validar_dataframe(df)
         # Load
-        cargar_movimientos(df, engine)
+        # Load
+        cargado = cargar_movimientos(df, engine)
 
-        print("Archivo cargado correctamente.")
-        archivos_ok += 1
+        if cargado:
+            archivos_ok += 1
+        else:
+            archivos_omitidos += 1
 
     # Resumen final del procesamiento
     print("\n" + "=" * 60)
@@ -63,6 +67,7 @@ def main():
     print("=" * 60)
     print(f"Archivos encontrados : {len(pdfs)}")
     print(f"Archivos cargados    : {archivos_ok}")
+    print(f"Archivos omitidos    : {archivos_omitidos}")
     print(f"Archivos con error   : {archivos_error}")
     print("=" * 60)
 
