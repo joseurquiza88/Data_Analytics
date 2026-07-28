@@ -1,6 +1,6 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
 Contabilidad_Empresa/data
-
+.env
 #Otros proyectos que estan en la carpeta
 E-Commerce Business Analysis
 Proyecto_Titanic
