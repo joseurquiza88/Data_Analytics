@@ -5,6 +5,9 @@ import re # Permite trabajar con expresiones regulares
 import matplotlib.pyplot as plt
 import os
 
+
+# ------------------------------------------------------------------------------------------
+# Resumenes bancarios
 # Misma funcion que notebooks unitarias
 def extraer_movimientos_pdf(ruta_pdf):
     """
@@ -348,4 +351,100 @@ def extraer_movimientos_pdf(ruta_pdf):
         print("No se pudo realizar la comprobación porque no se encontró el saldo total.")
 
     return df_movimientos , estado_validacion
-   
+
+
+
+
+# ------------------------------------------------------------------------------------------
+# FACTURA EMITIDAS Y RECIBIDAS
+# Objetivo: extraer información de un archivo Exce
+
+def renombrar_columnas(df):
+    return df.rename(columns={
+        "Fecha": "fecha",
+        "Tipo Compr.": "tipo_comprobante",
+        "Punto de venta": "punto_venta",
+        "Nº Compr.": "numero_comprobante",
+        "Nro. Compr.": "numero_comprobante",
+        "Razon Social": "razon_social",
+        "Razón Social": "razon_social",
+        "Cuit": "cuit",
+        "Cuit/DNI": "cuit",
+        "Condición": "condicion",
+        "Concepto": "concepto",
+        "Forma de Pago": "forma_pago",
+        "Forma de Cobro": "forma_cobro",
+        "Neto Gravado": "neto_gravado",
+        "Neto Gravado 1*": "neto_gravado",
+        "Iva % 10,5": "iva_10_5",
+        "IVA % 10,5": "iva_10_5",
+        "IVA % 21": "iva_21",
+        "Iva % 21": "iva_21",
+        "Iva % 21 ": "iva_21",
+        "Iva 27%": "iva_27",
+        "IVA 3%": "iva_3",
+        "Perc. IIBB": "percepcion_iibb",
+        "Perc. Munic.": "percepcion_municipal",
+        "No Gravado y Exento": "no_gravado_exento",
+        "Total": "total"
+    })
+
+def extraer_facturas_excel(ruta_excel):
+    """
+    Lee un archivo Excel de contabilidad y devuelve
+    dos DataFrames:
+        - Compras
+        - Ventas
+    """
+    # Compras
+    df_compras = pd.read_excel(ruta_excel, sheet_name="COMPRAS", header=5 )
+
+    # Ventas
+    df_ventas = pd.read_excel(ruta_excel, sheet_name="VENTAS", header=5 )
+
+    #Hacemos un testeo
+    if df_compras.empty:
+        raise ValueError (f"La hoja compras de {ruta_excel.name} esta vacio")
+
+    if df_ventas.empty:
+            raise ValueError (f"La hoja ventas de {ruta_excel.name} esta vacio")
+
+    # Normalizar columnas
+    df_compras = renombrar_columnas(df_compras)
+    df_ventas = renombrar_columnas(df_ventas)
+ 
+    # Trazabilidad
+    nombre_archivo = ruta_excel.name
+    df_compras["archivo_origen"] = nombre_archivo
+    df_ventas["archivo_origen"] = nombre_archivo
+
+
+    # print("Columnas ventas originales:")
+    # print(df_ventas.columns.tolist())
+
+    # print("Columnas ventas después rename:")
+    # print(df_ventas.columns.tolist())
+
+    # print("Columnas compras originales:")
+    # print(df_compras.columns.tolist())
+
+    df_compras = renombrar_columnas(df_compras)
+
+    #print("Columnas compras después rename:")
+    #print(df_compras.columns.tolist())
+    # Eliminar columnas sin nombre, porque pasa seguido
+    columnas_ventas = ['fecha', 'tipo_comprobante', 'punto_venta', 'numero_comprobante',
+       'razon_social', 'cuit', 'neto_gravado', 'iva_10_5', 'iva_21', 'iva_27',
+       'iva_3', 'percepcion_iibb', 'percepcion_municipal', 'no_gravado_exento',
+       'total', 'forma_cobro', 'archivo_origen']
+
+    columnas_compras = ['fecha', 'tipo_comprobante', 'punto_venta', 'numero_comprobante',
+       'razon_social', 'cuit', 'condicion', 'concepto', 'forma_pago',
+       'neto_gravado', 'iva_10_5', 'iva_21', 'iva_27', 'iva_3',
+       'percepcion_iibb', 'percepcion_municipal', 'no_gravado_exento', 'total',
+       'archivo_origen']
+    
+    df_ventas = df_ventas[columnas_ventas]
+    df_compras = df_compras[columnas_compras]
+
+    return df_compras, df_ventas

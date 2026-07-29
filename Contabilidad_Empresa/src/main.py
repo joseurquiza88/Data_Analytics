@@ -1,5 +1,5 @@
-from pipeline_movBancarios import pipeline_movBancarios
-from pipeline_facturas import pipeline_facturas
+from src.pipeline_movBancarios import pipeline_movBancarios
+from src.pipeline_facturas import pipeline_facturas
 
 
 def main():

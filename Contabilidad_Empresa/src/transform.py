@@ -64,3 +64,51 @@ def transformar_movimientos(df):
     df["saldo_en_cuenta"] = pd.to_numeric(df["saldo_en_cuenta"],errors="coerce")
 
     return df
+
+
+# ------------------------------------------------------------------------------------------
+# FACTURA EMITIDAS Y RECIBIDAS
+def transformar_facturas (df, tipo):
+
+    df = df.copy()
+
+    columnas_monetarias = ["neto_gravado", "iva_10_5",  "iva_21",
+        "iva_27", "iva_3", "percepcion_iibb", "percepcion_municipal", "no_gravado_exento","total"]
+
+    for col in columnas_monetarias:
+        df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
+
+    columnas_opcionales = ["iva_10_5",  "iva_21","iva_27", "iva_3", "percepcion_iibb", "percepcion_municipal", "no_gravado_exento"]
+
+    for col in columnas_opcionales:
+        df[col] = df[col].fillna(0)
+
+    # Fecha
+    df["fecha"] = pd.to_datetime(df["fecha"],errors="coerce", dayfirst=True)
+
+    # Mes
+    df["mes"] = df["fecha"].dt.strftime("%Y-%m")
+
+    # CUIT
+    df["cuit"] = (df["cuit"].astype("string").str.replace("-", "", regex=False).str.replace(".0", "", regex=False).str.strip())
+
+    # Columnas texto comunes
+    columnas_texto = [ "razon_social", "tipo_comprobante"]
+
+    # Columnas particulares
+    if tipo == "compras":
+        columnas_texto += [ "concepto", "forma_pago", "condicion"]
+
+    elif tipo == "ventas":
+        columnas_texto += ["forma_cobro"]
+    else:
+        raise ValueError("Tipo debe ser compras o ventas")
+
+    for col in columnas_texto:
+        df[col] = (df[col].astype("string").fillna("").str.strip().str.upper())
+
+
+    return df
+
+  

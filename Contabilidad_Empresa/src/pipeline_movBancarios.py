@@ -11,11 +11,11 @@
 
 
 from pathlib import Path
-from conexion import engine
-from extract import extraer_movimientos_pdf
-from transform import transformar_movimientos
-from load import cargar_movimientos
-from tests import validar_dataframe
+from src.conexion import engine
+from src.extract import extraer_movimientos_pdf
+from src.transform import transformar_movimientos
+from src.load import cargar_movimientos
+from src.tests import validar_dataframe
 
 # Carpeta donde se encuentran los resúmenes bancarios
 CARPETA_PDF = Path("data/raw/resumenes_bancarios")

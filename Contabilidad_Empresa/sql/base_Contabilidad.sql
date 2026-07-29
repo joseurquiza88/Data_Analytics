@@ -47,7 +47,7 @@ WHERE table_name = 'movimientos_bancarios';
 
 -- Para hacer pruebas
 DELETE FROM movimientos_bancarios
-WHERE EXTRACT(YEAR FROM fecha) = 2025;
+WHERE EXTRACT(YEAR FROM fecha) = 2026;
 
 DELETE FROM movimientos_bancarios
 WHERE archivo_origen = '01-2026_banco.pdf'
@@ -80,3 +80,64 @@ WHERE fecha IS NULL;
 
 SELECT COUNT(*)
 FROM movimientos_bancarios;
+
+-- ####################################################
+-- FACTURA EMITIDAS Y RECIBIDAS
+
+CREATE TABLE fact_recibidas (
+    id SERIAL PRIMARY KEY,
+    fecha DATE NOT NULL,
+    mes TEXT NOT NULL,
+    tipo_comprobante TEXT NOT NULL,
+    punto_venta TEXT NOT NULL,
+    numero_comprobante TEXT NOT NULL,
+    razon_social TEXT NOT NULL,
+    cuit TEXT,
+    condicion TEXT NOT NULL,
+    concepto TEXT NOT NULL,
+    forma_pago TEXT NOT NULL,
+
+    neto_gravado NUMERIC(15,2) NOT NULL,
+    iva_10_5 NUMERIC(15,2) DEFAULT 0,
+    iva_21 NUMERIC(15,2) NOT NULL,
+    iva_27 NUMERIC(15,2) DEFAULT 0,
+    iva_3 NUMERIC(15,2) DEFAULT 0,
+    percepcion_iibb NUMERIC(15,2) DEFAULT 0,
+    percepcion_municipal NUMERIC(15,2) DEFAULT 0,
+    no_gravado_exento NUMERIC(15,2) DEFAULT 0,
+    total NUMERIC(15,2) NOT NULL,
+
+    fecha_procesamiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    archivo_origen TEXT NOT NULL
+);
+
+CREATE TABLE fact_emitidas (
+    id SERIAL PRIMARY KEY,
+    fecha DATE NOT NULL,
+    mes TEXT NOT NULL,
+    tipo_comprobante TEXT NOT NULL,
+    punto_venta TEXT NOT NULL,
+    numero_comprobante TEXT NOT NULL,
+    razon_social TEXT NOT NULL,
+    cuit TEXT,
+    forma_cobro TEXT NOT NULL,
+
+    neto_gravado NUMERIC(15,2) NOT NULL,
+    iva_10_5 NUMERIC(15,2) DEFAULT 0,
+    iva_21 NUMERIC(15,2) NOT NULL,
+    iva_27 NUMERIC(15,2) DEFAULT 0,
+    iva_3 NUMERIC(15,2) DEFAULT 0,
+    percepcion_iibb NUMERIC(15,2) DEFAULT 0,
+    percepcion_municipal NUMERIC(15,2) DEFAULT 0,
+    no_gravado_exento NUMERIC(15,2) DEFAULT 0,
+    total NUMERIC(15,2) NOT NULL,
+
+    fecha_procesamiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    archivo_origen TEXT NOT NULL
+);
+
+drop table fact_emitidas;
+drop table fact_recibidas;
+
+DELETE FROM fact_recibidas
+WHERE EXTRACT(YEAR FROM fecha) = 2026;
