@@ -2,7 +2,7 @@
 
 ## 📌 Descripción del proyecto
 
-Este proyecto consiste en el desarrollo de un sistema de integración, procesamiento y análisis de información financiera y contable de una empresa.
+Este proyecto consiste en el desarrollo de un sistema de integración, procesamiento y análisis de información contable de una empresa.
 
 El objetivo principal es transformar información dispersa y en diferentes formatos (imágenes, archivos PDF y registros contables) en datos estructurados, centralizados y disponibles para análisis.
 
@@ -13,8 +13,8 @@ La solución implementa un flujo completo de datos (**ETL - Extract, Transform, 
 ## 🎯 Objetivos del proyecto
 
 - Extraer información desde diferentes fuentes de datos.
-- Automatizar la lectura de facturas y tickets mediante técnicas de OCR.
-- Extraer movimientos bancarios desde documentos PDF.
+- Automatizar la lectura de tickets mediante técnicas de OCR que provienen de fotos
+- Extraer movimientos bancarios desde documentos PDFs.
 - Procesar y limpiar información utilizando Python.
 - Diseñar un modelo de datos relacional.
 - Centralizar la información en una base de datos PostgreSQL.
@@ -36,7 +36,7 @@ Fuentes de información
         │
         ▼
 Extracción de datos
-(OCR / PDF Parsing / Archivos contables)
+(OCR (imagenes/fotos) / PDF Parsing / Archivos contables (.xls))
         │
         ▼
 Procesamiento y transformación
@@ -61,7 +61,7 @@ Base de datos PostgreSQL
 
 El sistema integra información proveniente de diferentes fuentes:
 
-### 🧾 Facturas y tickets
+### 🧾 Tickets
 
 Documentos en formato imagen procesados mediante técnicas de OCR para extraer información como:
 
@@ -93,136 +93,6 @@ Archivos PDF procesados para obtener información de movimientos:
 Registros financieros utilizados para complementar el análisis y generar indicadores de seguimiento.
 
 ---
-
-# 🔄 Flujo de trabajo
-
-## 1. Extracción
-
-Obtención de información desde documentos no estructurados:
-
-- Imágenes.
-- PDFs.
-- Archivos contables.
-
-Herramientas utilizadas:
-
-- OCR.
-- Expresiones regulares.
-- Procesamiento de documentos.
-
----
-
-## 2. Transformación
-
-Procesamiento de los datos utilizando Python:
-
-- Limpieza de registros.
-- Normalización de formatos.
-- Conversión de tipos de datos.
-- Validación de información.
-- Preparación para almacenamiento.
-
----
-
-## 3. Almacenamiento
-
-Carga de información estructurada en una base de datos relacional:
-
-- PostgreSQL.
-- Diseño de tablas.
-- Relaciones entre entidades.
-- Consultas SQL.
-
----
-
-## 4. Análisis y visualización
-
-La información procesada es utilizada para:
-
-- Análisis financiero.
-- Seguimiento de ingresos y egresos.
-- Control de movimientos.
-- Generación de indicadores.
-
-Herramientas:
-
-- SQL.
-- Power BI.
-- Streamlit.
-
----
-
-# 🛠️ Tecnologías utilizadas
-
-## Lenguajes
-
-- Python
-- SQL
-
-## Procesamiento y análisis de datos
-
-- Pandas
-- NumPy
-
-## Extracción de información
-
-- OpenCV
-- Tesseract OCR
-- pdfplumber
-
-## Base de datos
-
-- PostgreSQL
-
-## Visualización
-
-- Power BI
-- Streamlit
-
-## Desarrollo
-
-- Git
-- GitHub
-
----
-
-# 📊 Resultados
-
-El sistema permite:
-
-✅ Automatizar procesos manuales de carga y lectura de información financiera.
-
-✅ Centralizar datos provenientes de diferentes fuentes.
-
-✅ Generar una base estructurada para análisis.
-
-✅ Consultar información mediante SQL.
-
-✅ Crear visualizaciones interactivas para seguimiento financiero.
-
----
-
-## Ejemplo de dashboard
-
-![Dashboard financiero](images/dashboard.png)
-
----
-
-# 🚧 Estado del proyecto
-
-Actualmente el proyecto se encuentra en desarrollo.
-
-Próximas etapas:
-
-- Mejorar la extracción automática mediante OCR.
-- Incorporar validaciones adicionales de calidad de datos.
-- Ampliar el modelo de datos.
-- Agregar nuevos indicadores financieros.
-- Mejorar la aplicación Streamlit.
-- Automatizar procesos de actualización.
-
----
-
 # 📁 Estructura del proyecto
 
 ```text
@@ -263,9 +133,51 @@ contabilidad_empresa/
 │
 └── README.md
 ```
+---
+# 🛠️ Tecnologías utilizadas
+
+## Lenguajes
+
+- Python
+- SQL
+
+## Procesamiento y análisis de datos
+
+- Pandas
+- NumPy
+
+## Extracción de información
+
+- OpenCV
+- Tesseract OCR
+- pdfplumber
+
+## Base de datos
+
+- PostgreSQL
+
+## Visualización
+
+- Power BI
+- Streamlit
+
+## Desarrollo
+
+- Git
+- GitHub
 
 ---
 
-# 📌 Próximamente
+## Ejemplo de dashboard
+
+![Dashboard financiero](images/app-streamlit.JPG)
+
+---
+
+#### 🚧 Estado del proyecto
+
+Actualmente el proyecto se encuentra en desarrollo.
+
+#### 📌 Próximamente
 
 Este proyecto continuará evolucionando hacia una solución completa de analítica financiera, incorporando automatización, mejores prácticas de ingeniería de datos y herramientas de visualización para soporte a la toma de decisiones.
