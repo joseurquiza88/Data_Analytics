@@ -1,6 +1,4 @@
-# 📊 Sistema de Integración y Análisis de Información Financiera
-
-![Banner del proyecto](img/banner_finanzas.png)
+![Banner del proyecto](/Contabilidad_Empresa/img/banner_finanzas.png)
 
 ## 📌 Descripción del proyecto
 
