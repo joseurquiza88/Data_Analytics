@@ -1,0 +1,66 @@
+
+/* Tarjetas de métricas */
+div[data-testid="stMetric"]{
+    background-color:#ffffff;
+    border:1px solid #DCE3EC;
+    border-radius:14px;
+    padding:15px;
+    text-align: center;
+    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+
+.card{
+    background:white;
+    border:1px solid #DCE3EC;
+    border-radius:14px;
+    padding:16px;
+    text-align:center;
+    box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+
+.card-title{
+    font-size:14px;
+    font-weight:600;
+    color:#6b7280;
+    margin-bottom:10px;
+}
+
+.card-value{
+    font-size:16px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+/* Títulos de sección */
+.titulos_generales_seccion{
+    font-size:22px;
+    font-weight:700;
+    color:#1f2937;
+    letter-spacing:-0.3px;
+    margin:12px 0 18px 0;
+    
+}
+
+.titulo-card{
+    font-size:18px;
+    font-weight:700;
+    color:#1f2937;
+    justify-content: space-between;
+    margin-bottom:8px;
+}
+
+.periodo-card{
+    font-size:12px;
+    font-weight:400;
+    color:#6b7280;
+    margin-top:10px;
+    text-align:center;
+}
+
+.subseccion{
+    font-size:22px;
+    font-weight:700;
+    color:#1f2937;
+    margin-top:20px;
+    margin-bottom:15px;
+}

@@ -1,83 +1,49 @@
-
+#Librerias
 import streamlit as st
 import pandas as pd
 from datetime import datetime
+from pathlib import Path
+import sys
 
+#Setear las rutas
+ROOT_DIR = Path(__file__).resolve().parent.parent # resolve obtiene la ruta absoluta
+sys.path.append(str(ROOT_DIR))
+img_path = ROOT_DIR / "img" 
+#FUnciones de mis propios archivos
 from src.pipeline_movBancarios import pipeline_movBancarios
 from src.pipeline_facturas import pipeline_facturas
 from src.conexion import engine
 
+#Funcion para traer los estilos del css
+def cargar_css():
+    ruta_css = Path(__file__).parent / "style.css"
+    with open(ruta_css) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Configuración
 st.set_page_config(page_title="Contabilidad",page_icon="📊",layout="wide")
-st.markdown("""
-<style>
 
-/* Tarjetas de métricas */
-div[data-testid="stMetric"]{
-    background-color:#ffffff;
-    border:1px solid #DCE3EC;
-    border-radius:14px;
-    padding:15px;
-    text-align: center;
-    box-shadow:0 3px 8px rgba(0,0,0,0.08);
-}
-
-.card{
-    background:white;
-    border:1px solid #DCE3EC;
-    border-radius:14px;
-    padding:16px;
-    text-align:center;
-    box-shadow:0 3px 8px rgba(0,0,0,0.08);
-}
-
-.card-title{
-    font-size:14px;
-    font-weight:600;
-    color:#6b7280;
-    margin-bottom:10px;
-}
-
-.card-value{
-    font-size:16px;
-    font-weight:700;
-    color:#1f2937;
-}
-
-/* Títulos de sección */
-.titulos_generales_seccion{
-    font-size:22px;
-    font-weight:700;
-    color:#1f2937;
-    letter-spacing:-0.3px;
-    margin:12px 0 18px 0;
-    
-}
-
-.titulo-card{
-    font-size:18px;
-    font-weight:700;
-    color:#1f2937;
-    justify-content: space-between;
-    margin-bottom:8px;
-}
-
-.periodo-card{
-    font-size:12px;
-    font-weight:400;
-    color:#6b7280;
-    margin-top:10px;
-    text-align:center;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
+#Se carga el css que esta en el otro archivo
+cargar_css()
 
 # Titulo
-st.title("Sistema de Gestión Contable")
-st.caption("Pipeline ETL - Extracción, Transformación, Validación y Carga")
+# st.title("Sistema de Gestión Contable")
+# st.caption("Pipeline ETL - Extracción, Transformación, Validación y Carga")
+# st.image(img_path / "logo.png", width=80)
+# st.divider()
+
+
+# Header con logo y título
+
+col_logo, col_titulo = st.columns([0.5, 4])
+
+with col_logo:
+    st.image(img_path / "logo.png", width=80)
+
+with col_titulo:
+    st.title("Sistema de Gestión Contable")
+    st.caption("Pipeline ETL - Extracción, Transformación, Validación y Carga")
+
 st.divider()
 
 
@@ -121,10 +87,10 @@ if opcion == "Resumen":
     """, unsafe_allow_html=True)
 
 
-    st.divider()
+    # st.divider()
     #st.subheader("Información disponible")
-    # st.markdown("""<h2 id="info-disponible"> Información disponible </h2>""", unsafe_allow_html=True), no funciono!
-    st.markdown("""<div class="titulos_generales_seccion"> Información disponible </div> """, unsafe_allow_html=True)
+    # st.markdown("""<div class="titulos_generales_seccion"> Información disponible </div> """, unsafe_allow_html=True)
+    st.markdown("""<div class="subseccion">Información disponible</div>""",unsafe_allow_html=True)
     try:
         # Consulta movimientos bancarios
         banco = pd.read_sql(
