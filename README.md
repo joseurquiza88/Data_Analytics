@@ -170,8 +170,8 @@ contabilidad_empresa/
 
 ## Ejemplo de dashboard
 
-![Dashboard financiero](/Contabilidad_Empresa/img/app-streamlit.JPG)
 
+<img src="Contabilidad_Empresa/img/app-streamlit.PNG" width="600">
 ---
 
 #### 🚧 Estado del proyecto
