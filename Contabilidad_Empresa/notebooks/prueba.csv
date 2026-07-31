@@ -1,0 +1,165 @@
+,cliente_doc,fecha_emision,punto_venta,comp_nro,razon_social,condicion_iva,domicilio,condicion_venta,producto,cantidad,unidad,precio_unitario,bonificacion,importe_bonificacion,subtotal,IVA_contenido,otros_tributos,importeTotal,archivo_origen
+0,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_001_00001_00000339 (1)
+1,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_001_00001_00000339 (1)
+2,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_001_00001_00000340 (1)
+3,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_001_00001_00000340 (1)
+4,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003908
+5,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003908
+6,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003909
+7,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003909
+8,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003910 (1)
+9,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003910 (1)
+10,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003910
+11,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003910
+12,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003911
+13,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003911
+14,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003912
+15,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003912
+16,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003913
+17,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003913
+18,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003914
+19,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003914
+20,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003915
+21,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003915
+22,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003916
+23,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003916
+24,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003917
+25,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003917
+26,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003918
+27,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003918
+28,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003919
+29,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003919
+30,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003920
+31,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003920
+32,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003921
+33,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003921
+34,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003922
+35,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003922
+36,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003923
+37,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003923
+38,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003924
+39,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003924
+40,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003925
+41,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003925
+42,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003927
+43,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003927
+44,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003928
+45,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003928
+46,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003929
+47,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003929
+48,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003930
+49,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003930
+50,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003931
+51,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003931
+52,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003932
+53,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003932
+54,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003933
+55,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003933
+56,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003934
+57,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003934
+58,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003935
+59,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003935
+60,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003936
+61,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003936
+62,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003937
+63,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003937
+64,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003938
+65,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003938
+66,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003939
+67,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003939
+68,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003940
+69,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003940
+70,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003941
+71,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003941
+72,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003942
+73,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003942
+74,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003943
+75,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003943
+76,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003944
+77,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003944
+78,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003945
+79,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003945
+80,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003946
+81,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003946
+82,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003947
+83,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003947
+84,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003948
+85,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003948
+86,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003949
+87,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003949
+88,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003951
+89,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003951
+90,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003952
+91,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003952
+92,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003953
+93,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003953
+94,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003954
+95,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003954
+96,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003955
+97,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003955
+98,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003956
+99,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003956
+100,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003957
+101,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003957
+102,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003958
+103,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003958
+104,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003959
+105,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003959
+106,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003960
+107,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003960
+108,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003961
+109,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003961
+110,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003962
+111,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003962
+112,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003963
+113,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003963
+114,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003964
+115,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003964
+116,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003965
+117,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003965
+118,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003966
+119,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003966
+120,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003967
+121,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003967
+122,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003968
+123,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003968
+124,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003969
+125,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003969
+126,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003970
+127,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003970
+128,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003971
+129,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003971
+130,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003972
+131,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003972
+132,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003973
+133,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003973
+134,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003974
+135,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003974
+136,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003975
+137,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003975
+138,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003976
+139,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003976
+140,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003977
+141,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003977
+142,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003978
+143,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003978
+144,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003979
+145,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003979
+146,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003980
+147,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003980
+148,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003981
+149,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003981
+150,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003982
+151,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003982
+152,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003983
+153,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003983
+154,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003984
+155,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003984
+156,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003985
+157,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003985
+158,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003986
+159,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003986
+160,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003987
+161,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003987
+162,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Cajones,"3,00",unidades,3500.0,0.0,0.0,10500.0,2481.81,0.0,14300.0,30715431013_006_00001_00003988
+163,,28/07/2026,00001,00003988,,Consumidor Final,,Contado / Cuenta Corriente / Otra,Rezagos varios,"1,00",unidades,3800.0,0.0,0.0,3800.0,,,,30715431013_006_00001_00003988

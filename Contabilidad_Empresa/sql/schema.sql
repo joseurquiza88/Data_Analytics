@@ -141,3 +141,5 @@ drop table fact_recibidas;
 
 DELETE FROM fact_recibidas
 WHERE EXTRACT(YEAR FROM fecha) = 2026;
+DELETE FROM fact_emitidas
+WHERE EXTRACT(YEAR FROM fecha) = 2026;
