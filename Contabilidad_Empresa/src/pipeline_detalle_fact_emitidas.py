@@ -15,9 +15,14 @@ def pipeline_detalle_fact_emitidas():
         print(f"\nProcesando archivo: {archivo.name}")
         # Extract
         df= extraer_detalle_fact_emitidas(archivo)
+        df_detalle_fact_emitidas = extraer_detalle_fact_emitidas(archivo)
+
+        print(df_detalle_fact_emitidas)
+        print(df_detalle_fact_emitidas.columns)
+        print("Cantidad registros:", len(df_detalle_fact_emitidas))
         # Transform
-        df= transformar_detalle_fact_emitidas(df)
+        df_detalle_fact_emitidas= transformar_detalle_fact_emitidas(df_detalle_fact_emitidas)
         # Tests
-        test_detalle_fact_emitidas(df)
+        test_detalle_fact_emitidas(df_detalle_fact_emitidas)
         # Load
-        cargar_detalle_fact_emitidas(df, engine)
+        cargar_detalle_fact_emitidas(df_detalle_fact_emitidas, engine)

@@ -171,5 +171,9 @@ CREATE TABLE detalle_fact_emitidas (
     archivo_origen TEXT NOT NULL
 );
 drop table productos_vendidos;
+SELECT * FROM detalle_fact_emitidas;
 
-
+SELECT * FROM detalle_fact_emitidas;
+DELETE FROM detalle_fact_emitidas
+WHERE fecha_venta >= '2026-07-01'
+AND fecha_venta < '2026-08-01';

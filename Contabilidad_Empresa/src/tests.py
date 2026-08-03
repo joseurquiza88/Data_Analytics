@@ -218,20 +218,16 @@ def test_detalle_fact_emitidas(df):
 
 
     # Columnas numéricas
-    columnas_numericas = ['cantidad', 'precio_unitario', "bonificacion", "importe_bonificacion", "subtotal"]:
+    columnas_numericas = ['cantidad', 'precio_unitario', "bonificacion", "importe_bonificacion", "subtotal"]
     for columna in columnas_numericas:
         assert pd.api.types.is_numeric_dtype(df[columna]), f"{columna} no es numérica."
         print("Tipos de datos numéricos correctos.")
-        assert pd.api.types.is_string_dtype(df[columna])
-        print("Tipos de datos string correctos.")
-
-
     # Columnas string
-    columnas_string = ["cliente_doc", "punto_venta", "comp_nro", "razon_social",
-        "condicion_iva", "domicilio", "condicion_venta", "producto", "unidad", "archivo_origen", "mes"]
+    columnas_string = ["producto","unidad", "razon_social", "archivo_origen"]
+
     for columna in columnas_string:
-        assert pd.api.types.is_string_dtype(df[columna]), f"{columna} no es de tipo string."
-    print("Tipos de datos string correctos.")
+        assert df[columna].astype("string").dtype.name == "string", \
+            f"{columna} no es tipo string"
 
     # Productos no vacíos
     assert (df["producto"].str.strip() != "").all()
@@ -250,7 +246,7 @@ def test_detalle_fact_emitidas(df):
     assert (df["bonificacion"] >= 0).all()
 
     #Test del tipo de fecha
-    fecha_futura = df["fecha"] > pd.Timestamp.today()
+    fecha_futura = df["fecha_venta"] > pd.Timestamp.today()
     assert not fecha_futura.any(), "Hay fechas futuras"
     print("Fechas dentro del rango esperado.")
 

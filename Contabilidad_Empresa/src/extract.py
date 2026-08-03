@@ -452,46 +452,89 @@ def extraer_facturas_excel(ruta_excel):
 
 # ------------------------------------------------------------------------------------------
 # Detalle de productos obtenidos de las facturas emititas
+import os
+import re
+import pdfplumber
+import pandas as pd
 
-# Patrones regex
+
+# Patrones generales
+
+
 PATRON_ENCABEZADO = re.compile(r"Punto de Venta:\s*(\d+)\s+Comp\.\s*Nro:\s*(\d+)")
+
 PATRON_FECHA = re.compile(r"Fecha de Emisión:\s*(\d{2}/\d{2}/\d{4})")
-PATRON_CLIENTE_DOC = re.compile(r"Doc\.:\s*(.*?)\s+Apellido y Nombre / Razón Social:")
-PATRON_CLIENTE_RAZON_SOCIAL = re.compile(r"Apellido y Nombre / Razón Social:\s*(.*)")
+
+PATRON_CLIENTE_A = re.compile( r"CUIT:\s*([\d-]+)\s+Apellido y Nombre / Razón Social:\s*(.*)")
+
+PATRON_CLIENTE_B = re.compile(r"Doc\.:\s*(.*?)\s+Apellido y Nombre / Razón Social:\s*(.*)")
+
 PATRON_CLIENTE_CONDIVA = re.compile(r"Condición frente al IVA:\s*(.*?)\s+Domicilio:")
+
 PATRON_CLIENTE_DOMICILIO = re.compile(r"Domicilio:\s*(.*)")
+
 PATRON_CLIENTE_CONDVENTA = re.compile(r"Condición de venta:\s*(.*)")
-# PATRON_OTROS_TRIBUTOS = re.compile(r"Importe Otros Tributos:\s*\$\s*([\d.,]+)")
-# PATRON_IMPORTE_TOTAL = re.compile(r"Importe Total:\s*\$\s*([\d.,]+)")
-# PATRON_IVA_CONTENIDO = re.compile(r"IVA Contenido:\s*\$\s*([\d.,]+)")
-PATRON_PRODUCTO = re.compile(
-    r"(.+?)\s+"          # producto
-    r"(\d+,\d{2})\s+"    # cantidad
-    r"(\w+)\s+"          # unidad
-    r"(\d+,\d{2})\s+"    # precio unitario
-    r"(\d+,\d{2})\s+"    # bonificacion
-    r"(\d+,\d{2})\s+"    # importe bonificacion
-    r"(\d+,\d{2})$"      # subtotal
+
+
+# Productos factura B
+PATRON_PRODUCTO_SIMPLE = re.compile(
+    r"(.+?)\s+"
+    r"(\d+,\d{2})\s+"
+    r"(\w+)\s+"
+    r"([\d.,]+)\s+"
+    r"([\d.,]+)\s+"
+    r"([\d.,]+)\s+"
+    r"([\d.,]+)$"
 )
 
-# Funciones auxiliares
+
+# Productos factura A
+PATRON_PRODUCTO_IVA = re.compile(
+    r"(.+?)\s+"
+    r"(\d+,\d{2})\s+"
+    r"(\w+)\s+"
+    r"([\d.,]+)\s+"
+    r"([\d.,]+)\s+"
+    r"([\d.,]+)\s+"
+    r"\d+%\s+"
+    r"([\d.,]+)$"
+)
+
+
 def convertir_importe(valor):
-    """
-    Convierte importes formato arg:
-    1.234,56 -> 1234.56
-    """
+    if valor is None:
+        return None
     return float(valor.replace(".", "").replace(",", "."))
 
-# Extraccion factura PDF
 def extraer_detalle_fact_emitidas(ruta_pdf):
-    # 1. Leer PDF
+
+    # Leer primera página (evita ORIGINAL/DUPLICADO)
     with pdfplumber.open(ruta_pdf) as pdf:
         texto = pdf.pages[0].extract_text()
-    if texto is None:
+    if not texto:
         return pd.DataFrame()
     lineas = texto.split("\n")
+    print("\n========== TEXTO PDF ==========")
+    for linea in lineas[:20]:
+        print(repr(linea))
+    print("========== FIN TEXTO ==========")
 
-    # 2. Variables
+  
+    # Detectar tipo factura
+
+
+    tipo_factura = None
+    for linea in lineas:
+        if linea.strip() == "A":
+            tipo_factura = "A"
+            break
+        if linea.strip() == "B":
+            tipo_factura = "B"
+            break
+    print("Tipo factura:", tipo_factura)
+
+   
+    # Variables
     punto_venta = None
     comp_nro = None
     fecha = None
@@ -500,12 +543,10 @@ def extraer_detalle_fact_emitidas(ruta_pdf):
     condicion_iva = None
     domicilio = None
     condicion_venta = None
-    # otros_tributos = None
-    # importe_total = None
-    # IVA_contenido = None
     inicio_tabla = None
 
-    # 3. Extraer información general
+    # Buscar cabecera
+ 
     for i, linea in enumerate(lineas):
         if punto_venta is None:
             match = PATRON_ENCABEZADO.search(linea)
@@ -517,69 +558,84 @@ def extraer_detalle_fact_emitidas(ruta_pdf):
             match = PATRON_FECHA.search(linea)
             if match:
                 fecha = match.group(1)
+        # Cliente
+        if tipo_factura == "A":
+            match = PATRON_CLIENTE_A.search(linea)
+            if match:
+                cliente_doc = match.group(1).strip()
+                razon_social = match.group(2).strip()
 
-        if cliente_doc is None:
-            match = PATRON_CLIENTE_DOC.search(linea)
+        elif tipo_factura == "B":
+            match = PATRON_CLIENTE_B.search(linea)
             if match:
                 cliente_doc = match.group(1).strip()
                 if cliente_doc == "-":
                     cliente_doc = None
-
-        if razon_social is None:
-            match = PATRON_CLIENTE_RAZON_SOCIAL.search(linea)
-            if match:
-                razon_social = match.group(1).strip()
-                if razon_social == "":
-                    razon_social = None
+                razon_social = match.group(2).strip()
 
         if condicion_iva is None:
             match = PATRON_CLIENTE_CONDIVA.search(linea)
             if match:
                 condicion_iva = match.group(1).strip()
-
         if domicilio is None:
             match = PATRON_CLIENTE_DOMICILIO.search(linea)
             if match:
                 domicilio = match.group(1).strip()
-                if domicilio == "":
-                    domicilio = None
-
         if condicion_venta is None:
             match = PATRON_CLIENTE_CONDVENTA.search(linea)
             if match:
                 condicion_venta = match.group(1).strip()
 
-        # if otros_tributos is None:
-        #     match = PATRON_OTROS_TRIBUTOS.search(linea)
-        #     if match:
-        #         otros_tributos = convertir_importe(match.group(1))
+        if inicio_tabla is None:
+            if "Código Producto" in linea:
+                inicio_tabla = i
 
-        # if importe_total is None:
-        #     match = PATRON_IMPORTE_TOTAL.search(linea)
-        #     if match:
-        #         importe_total = convertir_importe(match.group(1))
-
-        # if IVA_contenido is None:
-        #     match = PATRON_IVA_CONTENIDO.search(linea)
-        #     if match:
-        #         IVA_contenido = convertir_importe(match.group(1))
-
-        if inicio_tabla is None and "Código" in linea:
-            inicio_tabla = i
-
-    # Si no encontró productos
     if inicio_tabla is None:
+        print("No se encontró la tabla")
         return pd.DataFrame()
 
-    # 4. Extraer detalle productos
-    detalle = []
-    # primera_fila = True
-    for linea in lineas[inicio_tabla + 1:]:
-        if "Subtotal:" in linea:
-            break
-        match = PATRON_PRODUCTO.match(linea)
+    print("\nInicio tabla:", inicio_tabla)
 
-        if match:
+    # Elegir regex productos
+    if tipo_factura == "A":
+        patron_producto = PATRON_PRODUCTO_IVA
+    else:
+        patron_producto = PATRON_PRODUCTO_SIMPLE
+
+    # Extraer productos
+    detalle = []
+    for linea in lineas[inicio_tabla + 1:]:
+        linea = linea.strip()
+        if linea.startswith("Subtotal:"):
+            break
+        if linea == "":
+            continue
+        match = patron_producto.search(linea)
+        if not match:
+            continue
+
+        if tipo_factura == "A":
+
+            registro = {
+                "cliente_doc": cliente_doc,
+                "fecha_venta": fecha,
+                "punto_venta": punto_venta,
+                "comp_nro": comp_nro,
+                "razon_social": razon_social,
+                "condicion_iva": condicion_iva,
+                "domicilio": domicilio,
+                "condicion_venta": condicion_venta,
+
+                "producto": match.group(1).strip(),
+                "cantidad": convertir_importe(match.group(2)),
+                "unidad": match.group(3),
+                "precio_unitario": convertir_importe(match.group(4)),
+                "bonificacion": convertir_importe(match.group(5)),
+                "importe_bonificacion": 0.0,                 # <- no existe en factura A
+                "subtotal": convertir_importe(match.group(7)) # subtotal con IVA
+            }
+
+        else:
             registro = {
                 "cliente_doc": cliente_doc,
                 "fecha_venta": fecha,
@@ -598,24 +654,17 @@ def extraer_detalle_fact_emitidas(ruta_pdf):
                 "subtotal": convertir_importe(match.group(7))
             }
 
-            # # Datos de cabecera solo una vez
-            # if primera_fila:
-            #     registro["IVA_contenido"] = IVA_contenido
-            #     registro["otros_tributos"] = otros_tributos
-            #     registro["importe_total"] = importe_total
-            #     primera_fila = False
-            # else:
-            #     registro["IVA_contenido"] = None
-            #     registro["otros_tributos"] = None
-            #     registro["importe_total"] = None
+        detalle.append(registro)
 
-            detalle.append(registro)
+    print("\nCantidad productos encontrados:", len(detalle))
+    df = pd.DataFrame(detalle)
+    if df.empty:
+        return df
 
-    # 5. DataFrame final
-    df_detalle= pd.DataFrame(detalle)
-    df_detalle["archivo_origen"] = os.path.basename(ruta_pdf)
-    if df_detalle.empty: 
-        return df_detalle
-    
+    # ORIGINAL - DUPLIADO - TRIPLICADO
+    df = df.drop_duplicates(subset=["producto", "cantidad", "precio_unitario", "subtotal"] )
+    df["archivo_origen"] = os.path.basename(ruta_pdf)
+    df["fecha_venta"] = pd.to_datetime(df["fecha_venta"], format="%d/%m/%Y" )
+    df["mes"] = df["fecha_venta"].dt.strftime("%Y-%m")
 
-    return df_detalle
+    return df

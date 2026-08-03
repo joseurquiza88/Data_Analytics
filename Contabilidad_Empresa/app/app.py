@@ -12,6 +12,7 @@ img_path = ROOT_DIR / "img"
 #FUnciones de mis propios archivos
 from src.pipeline_movBancarios import pipeline_movBancarios
 from src.pipeline_facturas import pipeline_facturas
+from src.pipeline_detalle_fact_emitidas import pipeline_detalle_fact_emitidas
 from src.conexion import engine
 
 #Funcion para traer los estilos del css
@@ -52,7 +53,7 @@ st.sidebar.title("Procesamiento")
 
 opcion = st.sidebar.radio(
    "Seleccionar proceso",
-   ["Resumen","Movimientos Bancarios","Facturas", "Ejecutar Todo"])
+   ["Resumen","Movimientos Bancarios","Facturas", "Detalle productos vendidos", "Ejecutar Todo"])
 
 # opcion = st.selectbox("Resumen","Movimientos Bancarios","Facturas", "Ejecutar Todo")
 
@@ -190,6 +191,8 @@ if opcion == "Resumen":
 #Banco
 
 
+
+
 elif opcion == "Movimientos Bancarios":
     st.subheader("Procesamiento de movimientos bancarios")
     st.write(
@@ -230,6 +233,37 @@ elif opcion == "Facturas":
             f"({datetime.now().strftime('%d/%m/%Y %H:%M')})")
     # Todo
 
+
+# Detalle productos vendidos
+
+elif opcion == "Detalle productos vendidos":
+
+    st.subheader("Extracción de productos vendidos")
+
+    st.write(
+        """
+        Procesa facturas emitidas en formato PDF:
+
+        ✔ Extracción de productos vendidos  
+        ✔ Identificación de cantidades y precios  
+        ✔ Normalización de datos  
+        ✔ Validaciones de calidad  
+        ✔ Carga PostgreSQL
+        """
+    )
+
+    if st.button("Procesar detalle de productos"):
+
+        with st.spinner("Extrayendo productos desde facturas PDF..."):
+
+            pipeline_detalle_fact_emitidas()
+
+        st.success(
+            f"Proceso finalizado correctamente "
+            f"({datetime.now().strftime('%d/%m/%Y %H:%M')})"
+        )
+
+
 elif opcion == "Ejecutar Todo":
     st.subheader(" Ejecución completa")
     if st.button("Ejecutar Pipeline Completo"):
@@ -238,6 +272,8 @@ elif opcion == "Ejecutar Todo":
             pipeline_movBancarios()
             progreso.progress(50)
             pipeline_facturas()
+            progreso.progress(100)
+            pipeline_detalle_fact_emitidas()
             progreso.progress(100)
         st.success("Todos los procesos finalizaron correctamente.")
 
