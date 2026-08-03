@@ -2,6 +2,7 @@
 #Objetivo: limpiar y preparar info antes de cargarla en PostgreSQL.
 #Libreiras
 import pandas as pd
+import os
 
 def clasificar_movimiento(texto): # esto vino de la notebook de analisis de movimientos bancarios
     texto = str(texto).upper()
@@ -111,4 +112,23 @@ def transformar_facturas (df, tipo):
 
     return df
 
-  
+
+# ------------------------------------------------------------------------------------------
+# Detalle de productos obtenidos de las facturas emititas
+def transformar_detalle_fact_emitidas(df):
+    if df.empty:
+        return df
+
+    df = df.copy()
+
+    df["fecha_venta"] = pd.to_datetime(df["fecha_venta"], format="%d/%m/%Y")
+
+    df["mes"] = df["fecha_venta"].dt.strftime("%Y-%m")
+
+
+    columnas_numericas = ["cantidad","precio_unitario", "bonificacion", "importe_bonificacion", "subtotal"]
+
+    for col in columnas_numericas:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    return df

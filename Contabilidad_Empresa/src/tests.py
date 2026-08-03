@@ -198,3 +198,66 @@ def test_facturas(df, tipo):
     print("=" * 50)
 
 
+# ------------------------------------------------------------------------------------------
+# Detalle de productos obtenidos de las facturas emititas
+
+def test_detalle_fact_emitidas(df):
+
+    #DataFrame no vacío
+    assert not df.empty, "El DataFrame está vacío."
+    print(" DataFrame no vacío.")
+
+    #columnas esperadas
+    columnas_esperadas =  ["cliente_doc", "fecha_venta", "mes", "punto_venta", "comp_nro", "razon_social", 
+"condicion_iva", "domicilio", "condicion_venta", "producto", "cantidad", "unidad", 
+"precio_unitario", "bonificacion", "importe_bonificacion", "subtotal", "archivo_origen"]
+
+    faltantes = set(columnas_esperadas) - set(df.columns)
+    assert len(faltantes) == 0, f"Faltan columnas: {faltantes}"
+    print("Columnas correctas del detalle de las facturas emitidas")
+
+
+    # Columnas numéricas
+    columnas_numericas = ['cantidad', 'precio_unitario', "bonificacion", "importe_bonificacion", "subtotal"]:
+    for columna in columnas_numericas:
+        assert pd.api.types.is_numeric_dtype(df[columna]), f"{columna} no es numérica."
+        print("Tipos de datos numéricos correctos.")
+        assert pd.api.types.is_string_dtype(df[columna])
+        print("Tipos de datos string correctos.")
+
+
+    # Columnas string
+    columnas_string = ["cliente_doc", "punto_venta", "comp_nro", "razon_social",
+        "condicion_iva", "domicilio", "condicion_venta", "producto", "unidad", "archivo_origen", "mes"]
+    for columna in columnas_string:
+        assert pd.api.types.is_string_dtype(df[columna]), f"{columna} no es de tipo string."
+    print("Tipos de datos string correctos.")
+
+    # Productos no vacíos
+    assert (df["producto"].str.strip() != "").all()
+
+    # Cantidad positiva
+    assert (df["cantidad"] > 0).all()
+
+    # Precio unitario no negativo
+    assert (df["precio_unitario"] >= 0).all()
+
+
+    # Subtotal no negativo
+    assert (df["subtotal"] >= 0).all()
+
+    # Subtotal no negativo
+    assert (df["bonificacion"] >= 0).all()
+
+    #Test del tipo de fecha
+    fecha_futura = df["fecha"] > pd.Timestamp.today()
+    assert not fecha_futura.any(), "Hay fechas futuras"
+    print("Fechas dentro del rango esperado.")
+
+    #Informacion duplicado
+    duplicados = df.duplicated(subset=["fecha_venta","punto_venta",  "comp_nro", "producto" ]).sum()
+    assert duplicados == 0, f"Hay {duplicados} comprobantes duplicados"
+
+    # Mes consistente con la fecha
+    mes_calculado = df["fecha_venta"].dt.strftime("%Y-%m")
+    assert (mes_calculado == df["mes"]).all()

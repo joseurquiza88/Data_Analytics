@@ -451,7 +451,7 @@ def extraer_facturas_excel(ruta_excel):
 
 
 # ------------------------------------------------------------------------------------------
-# Productos obtenidos de las facturas emititas
+# Detalle de productos obtenidos de las facturas emititas
 
 # Patrones regex
 PATRON_ENCABEZADO = re.compile(r"Punto de Venta:\s*(\d+)\s+Comp\.\s*Nro:\s*(\d+)")
@@ -613,12 +613,9 @@ def extraer_detalle_fact_emitidas(ruta_pdf):
 
     # 5. DataFrame final
     df_detalle= pd.DataFrame(detalle)
-    
+    df_detalle["archivo_origen"] = os.path.basename(ruta_pdf)
     if df_detalle.empty: 
         return df_detalle
     
-    df_detalle["fecha_venta"] = pd.to_datetime(df_detalle["fecha_venta"], format="%d/%m/%Y")
-    df_detalle["mes"] = df_detalle["fecha_venta"].dt.strftime("%Y-%m")
-    df_detalle["archivo_origen"] = os.path.basename(ruta_pdf)
 
     return df_detalle
