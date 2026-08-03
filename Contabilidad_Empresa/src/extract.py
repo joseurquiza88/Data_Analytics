@@ -9,6 +9,106 @@ import os
 # ------------------------------------------------------------------------------------------
 # Resumenes bancarios
 # Misma funcion que notebooks unitarias
+def convertir_monto(texto):
+    if texto is None:
+        return "NA"
+    texto = texto.strip()
+    negativo = "-" in texto
+    texto = texto.replace("$", "").replace("-", "").replace(" ", "").replace(".", "").replace(",", ".")
+    try:
+        valor = float(texto)
+    except ValueError:
+        return "NA"
+    if negativo:
+        valor *= -1
+    return valor
+
+def fecha_al_inicio(texto):
+    resultado = re.match(r"^\s*(\d{2}/\d{2}/\d{2})", texto)
+    if resultado:
+        return resultado.group(1)
+    return None
+
+def agrupar_palabras_en_lineas(palabras, tolerancia_vertical=3):
+    palabras = sorted(palabras, key=lambda palabra: palabra["top"])
+    lineas = []
+    for palabra in palabras:
+        agregada = False
+        for linea in lineas:
+            top_linea = linea[0]["top"]
+            if abs(palabra["top"] - top_linea) <= tolerancia_vertical:
+                linea.append(palabra)
+                agregada = True
+                break
+
+        if not agregada:
+            lineas.append([palabra])
+    for linea in lineas:
+        linea.sort(key=lambda palabra: palabra["x0"])
+    return lineas
+
+def es_fecha_sola(texto):
+    return bool(re.fullmatch(r"\d{2}/\d{2}/\d{2}", texto.strip()))
+def es_numero_de_pagina(texto):
+    return bool(re.fullmatch(r"\d+\s*-\s*\d+", texto.strip()))
+
+def es_informacion_a_ignorar(texto): # Ojo con esta parte, no esta del todo bueno hacerlo asi!!
+    texto_lower = texto.lower()
+    if "cuenta corriente nº" in texto_lower:
+        return True
+    if "cuenta corriente nro" in texto_lower:
+        return True
+    if "cbu:" in texto_lower:
+        return True
+    if "banco santander argentina s.a." in texto_lower:
+        return True
+    if "correlativo 800678" in texto_lower:
+        return True
+    if "ningún accionista mayoritario" in texto_lower:
+        return True
+    if "tampoco lo hacen otras entidades" in texto_lower:
+        return True
+    if "salvo error u omisión" in texto_lower:
+        return True
+    if texto_lower == "acuerdo":
+        return True
+    if texto_lower.startswith("límite:"):
+        return True
+    if texto_lower.startswith("limite:"):
+        return True
+    if "vencimiento:" in texto_lower:
+        return True
+    if "total numerales:" in texto_lower:
+        return True
+    if "total excedido:" in texto_lower:
+        return True
+    if "máximo saldo deudor:" in texto_lower:
+        return True
+    if "maximo saldo deudor:" in texto_lower:
+        return True
+    if "fecha" in texto_lower and "comprobante" in texto_lower and "movimiento" in texto_lower:
+        return True
+    if "fecha" in texto_lower and "concepto" in texto_lower and "comprobante" in texto_lower and "debito" in texto_lower and "credito" in texto_lower and "saldo" in texto_lower:
+        return True
+    return False
+
+def limpiar_movimiento(texto):
+    texto = re.sub(r"^\s*\d{2}/\d{2}/\d{2}\s*", "", texto)
+    texto = re.sub(r"\s+", " ", texto)
+    return texto.strip()
+
+def extraer_comprobante_y_movimiento(texto):
+    texto = re.sub(r"^\s*\d{2}/\d{2}/\d{2}\s*", "", texto)
+    texto = re.sub(r"\s+", " ", texto).strip()
+    partes = texto.split()
+    comprobante = "NA"
+
+    if len(partes) > 0 and partes[0].isdigit():
+        comprobante = partes[0]
+        partes = partes[1:]
+    movimiento = " ".join(partes)
+    movimiento = limpiar_movimiento(movimiento)
+    return comprobante, movimiento
 def extraer_movimientos_pdf(ruta_pdf):
     """
     Lee un resumen bancario PDF y devuelve un DataFrame
@@ -24,106 +124,7 @@ def extraer_movimientos_pdf(ruta_pdf):
 
     columnas = ["Fecha", "Comprobante", "Movimiento", "Debito", "Credito", "Saldo en cuenta"]
     patron_monto = re.compile(r"-?\$?\s?\d{1,3}(?:\.\d{3})*,\d{2}")
-    def convertir_monto(texto):
-        if texto is None:
-            return "NA"
-        texto = texto.strip()
-        negativo = "-" in texto
-        texto = texto.replace("$", "").replace("-", "").replace(" ", "").replace(".", "").replace(",", ".")
-        try:
-            valor = float(texto)
-        except ValueError:
-            return "NA"
-        if negativo:
-            valor *= -1
-        return valor
-    
-    def fecha_al_inicio(texto):
-        resultado = re.match(r"^\s*(\d{2}/\d{2}/\d{2})", texto)
-        if resultado:
-            return resultado.group(1)
-        return None
-
-    def agrupar_palabras_en_lineas(palabras, tolerancia_vertical=3):
-        palabras = sorted(palabras, key=lambda palabra: palabra["top"])
-        lineas = []
-        for palabra in palabras:
-            agregada = False
-            for linea in lineas:
-                top_linea = linea[0]["top"]
-                if abs(palabra["top"] - top_linea) <= tolerancia_vertical:
-                    linea.append(palabra)
-                    agregada = True
-                    break
-
-            if not agregada:
-                lineas.append([palabra])
-        for linea in lineas:
-            linea.sort(key=lambda palabra: palabra["x0"])
-        return lineas
-
-    def es_fecha_sola(texto):
-        return bool(re.fullmatch(r"\d{2}/\d{2}/\d{2}", texto.strip()))
-    def es_numero_de_pagina(texto):
-        return bool(re.fullmatch(r"\d+\s*-\s*\d+", texto.strip()))
-
-    def es_informacion_a_ignorar(texto): # Ojo con esta parte, no esta del todo bueno hacerlo asi!!
-        texto_lower = texto.lower()
-        if "cuenta corriente nº" in texto_lower:
-            return True
-        if "cuenta corriente nro" in texto_lower:
-            return True
-        if "cbu:" in texto_lower:
-            return True
-        if "banco santander argentina s.a." in texto_lower:
-            return True
-        if "correlativo 800678" in texto_lower:
-            return True
-        if "ningún accionista mayoritario" in texto_lower:
-            return True
-        if "tampoco lo hacen otras entidades" in texto_lower:
-            return True
-        if "salvo error u omisión" in texto_lower:
-            return True
-        if texto_lower == "acuerdo":
-            return True
-        if texto_lower.startswith("límite:"):
-            return True
-        if texto_lower.startswith("limite:"):
-            return True
-        if "vencimiento:" in texto_lower:
-            return True
-        if "total numerales:" in texto_lower:
-            return True
-        if "total excedido:" in texto_lower:
-            return True
-        if "máximo saldo deudor:" in texto_lower:
-            return True
-        if "maximo saldo deudor:" in texto_lower:
-            return True
-        if "fecha" in texto_lower and "comprobante" in texto_lower and "movimiento" in texto_lower:
-            return True
-        if "fecha" in texto_lower and "concepto" in texto_lower and "comprobante" in texto_lower and "debito" in texto_lower and "credito" in texto_lower and "saldo" in texto_lower:
-            return True
-        return False
-
-    def limpiar_movimiento(texto):
-        texto = re.sub(r"^\s*\d{2}/\d{2}/\d{2}\s*", "", texto)
-        texto = re.sub(r"\s+", " ", texto)
-        return texto.strip()
-
-    def extraer_comprobante_y_movimiento(texto):
-        texto = re.sub(r"^\s*\d{2}/\d{2}/\d{2}\s*", "", texto)
-        texto = re.sub(r"\s+", " ", texto).strip()
-        partes = texto.split()
-        comprobante = "NA"
-
-        if len(partes) > 0 and partes[0].isdigit():
-            comprobante = partes[0]
-            partes = partes[1:]
-        movimiento = " ".join(partes)
-        movimiento = limpiar_movimiento(movimiento)
-        return comprobante, movimiento
+   
 
     # Determinar año del resumen
     nombre_archivo = os.path.basename(ruta_pdf)
