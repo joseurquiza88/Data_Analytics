@@ -87,3 +87,24 @@ def cargar_facturas_emitidas(df, engine):
     print(f"Ventas cargadas correctamente: {archivo}. Registros insertados: {len(df)}")
     return True
 
+# ------------------------------------------------------------------------------------------
+# Productos obtenidos de las facturas emititas
+def cargar_detalle_fact_emitidas(df, engine):
+    archivo = df["archivo_origen"].iloc[0]
+
+    consulta = """
+    SELECT COUNT(*)
+    FROM detalle_fact_emitidas
+    WHERE archivo_origen = :archivo
+    """
+    with engine.connect() as conexion:
+        resultado = conexion.execute(text(consulta),{"archivo": archivo})
+        existe = resultado.scalar()
+
+    if existe > 0:
+        print(f"Detalle de factura ya cargado:: {archivo}")
+        return False
+
+    df.to_sql("detalle_fact_emitidas", engine, if_exists="append", index=False)
+    print(f"Detalle de factura cargados correctamente: {archivo}. Registros insertados: {len(df)}")
+    return True

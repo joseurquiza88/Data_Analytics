@@ -143,3 +143,33 @@ DELETE FROM fact_recibidas
 WHERE EXTRACT(YEAR FROM fecha) = 2026;
 DELETE FROM fact_emitidas
 WHERE EXTRACT(YEAR FROM fecha) = 2026;
+
+
+
+-- ####################################################
+-- Productos vendidos
+
+CREATE TABLE detalle_fact_emitidas (
+    id SERIAL PRIMARY KEY,
+    cliente_doc TEXT,
+    fecha_venta DATE NOT NULL,
+    mes TEXT NOT NULL,
+    punto_venta TEXT NOT NULL,
+    comp_nro TEXT NOT NULL,
+    razon_social TEXT,
+    condicion_iva TEXT,
+    domicilio TEXT,
+    condicion_venta TEXT NOT NULL,
+    producto TEXT NOT NULL,
+    cantidad NUMERIC DEFAULT 0,
+    unidad TEXT,
+    precio_unitario NUMERIC(15,2) DEFAULT 0,
+    bonificacion NUMERIC(15,2) DEFAULT 0,
+    importe_bonificacion NUMERIC(15,2) DEFAULT 0,
+    subtotal NUMERIC(15,2) DEFAULT 0,
+    fecha_procesamiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    archivo_origen TEXT NOT NULL
+);
+drop table productos_vendidos;
+
+

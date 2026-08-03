@@ -461,9 +461,9 @@ PATRON_CLIENTE_RAZON_SOCIAL = re.compile(r"Apellido y Nombre / Razón Social:\s*
 PATRON_CLIENTE_CONDIVA = re.compile(r"Condición frente al IVA:\s*(.*?)\s+Domicilio:")
 PATRON_CLIENTE_DOMICILIO = re.compile(r"Domicilio:\s*(.*)")
 PATRON_CLIENTE_CONDVENTA = re.compile(r"Condición de venta:\s*(.*)")
-PATRON_OTROS_TRIBUTOS = re.compile(r"Importe Otros Tributos:\s*\$\s*([\d.,]+)")
-PATRON_IMPORTE_TOTAL = re.compile(r"Importe Total:\s*\$\s*([\d.,]+)")
-PATRON_IVA_CONTENIDO = re.compile(r"IVA Contenido:\s*\$\s*([\d.,]+)")
+# PATRON_OTROS_TRIBUTOS = re.compile(r"Importe Otros Tributos:\s*\$\s*([\d.,]+)")
+# PATRON_IMPORTE_TOTAL = re.compile(r"Importe Total:\s*\$\s*([\d.,]+)")
+# PATRON_IVA_CONTENIDO = re.compile(r"IVA Contenido:\s*\$\s*([\d.,]+)")
 PATRON_PRODUCTO = re.compile(
     r"(.+?)\s+"          # producto
     r"(\d+,\d{2})\s+"    # cantidad
@@ -483,7 +483,7 @@ def convertir_importe(valor):
     return float(valor.replace(".", "").replace(",", "."))
 
 # Extraccion factura PDF
-def extraer_factura_pdf(ruta_pdf):
+def extraer_detalle_fact_emitidas(ruta_pdf):
     # 1. Leer PDF
     with pdfplumber.open(ruta_pdf) as pdf:
         texto = pdf.pages[0].extract_text()
@@ -500,9 +500,9 @@ def extraer_factura_pdf(ruta_pdf):
     condicion_iva = None
     domicilio = None
     condicion_venta = None
-    otros_tributos = None
-    importe_total = None
-    IVA_contenido = None
+    # otros_tributos = None
+    # importe_total = None
+    # IVA_contenido = None
     inicio_tabla = None
 
     # 3. Extraer información general
@@ -549,20 +549,20 @@ def extraer_factura_pdf(ruta_pdf):
             if match:
                 condicion_venta = match.group(1).strip()
 
-        if otros_tributos is None:
-            match = PATRON_OTROS_TRIBUTOS.search(linea)
-            if match:
-                otros_tributos = convertir_importe(match.group(1))
+        # if otros_tributos is None:
+        #     match = PATRON_OTROS_TRIBUTOS.search(linea)
+        #     if match:
+        #         otros_tributos = convertir_importe(match.group(1))
 
-        if importe_total is None:
-            match = PATRON_IMPORTE_TOTAL.search(linea)
-            if match:
-                importe_total = convertir_importe(match.group(1))
+        # if importe_total is None:
+        #     match = PATRON_IMPORTE_TOTAL.search(linea)
+        #     if match:
+        #         importe_total = convertir_importe(match.group(1))
 
-        if IVA_contenido is None:
-            match = PATRON_IVA_CONTENIDO.search(linea)
-            if match:
-                IVA_contenido = convertir_importe(match.group(1))
+        # if IVA_contenido is None:
+        #     match = PATRON_IVA_CONTENIDO.search(linea)
+        #     if match:
+        #         IVA_contenido = convertir_importe(match.group(1))
 
         if inicio_tabla is None and "Código" in linea:
             inicio_tabla = i
@@ -572,8 +572,8 @@ def extraer_factura_pdf(ruta_pdf):
         return pd.DataFrame()
 
     # 4. Extraer detalle productos
-    factura = []
-    primera_fila = True
+    detalle = []
+    # primera_fila = True
     for linea in lineas[inicio_tabla + 1:]:
         if "Subtotal:" in linea:
             break
@@ -582,7 +582,7 @@ def extraer_factura_pdf(ruta_pdf):
         if match:
             registro = {
                 "cliente_doc": cliente_doc,
-                "fecha_emision": fecha,
+                "fecha_venta": fecha,
                 "punto_venta": punto_venta,
                 "comp_nro": comp_nro,
                 "razon_social": razon_social,
@@ -590,7 +590,7 @@ def extraer_factura_pdf(ruta_pdf):
                 "domicilio": domicilio,
                 "condicion_venta": condicion_venta,
                 "producto": match.group(1).strip(),
-                "cantidad": match.group(2),
+                "cantidad": convertir_importe(match.group(2)),
                 "unidad": match.group(3),
                 "precio_unitario": convertir_importe(match.group(4)),
                 "bonificacion": convertir_importe(match.group(5)),
@@ -598,20 +598,27 @@ def extraer_factura_pdf(ruta_pdf):
                 "subtotal": convertir_importe(match.group(7))
             }
 
-            # Datos de cabecera solo una vez
-            if primera_fila:
-                registro["IVA_contenido"] = IVA_contenido
-                registro["otros_tributos"] = otros_tributos
-                registro["importe_total"] = importe_total
-                primera_fila = False
-            else:
-                registro["IVA_contenido"] = None
-                registro["otros_tributos"] = None
-                registro["importe_total"] = None
+            # # Datos de cabecera solo una vez
+            # if primera_fila:
+            #     registro["IVA_contenido"] = IVA_contenido
+            #     registro["otros_tributos"] = otros_tributos
+            #     registro["importe_total"] = importe_total
+            #     primera_fila = False
+            # else:
+            #     registro["IVA_contenido"] = None
+            #     registro["otros_tributos"] = None
+            #     registro["importe_total"] = None
 
-            factura.append(registro)
+            detalle.append(registro)
 
     # 5. DataFrame final
-    df_factura = pd.DataFrame(factura)
+    df_detalle= pd.DataFrame(detalle)
+    
+    if df_detalle.empty: 
+        return df_detalle
+    
+    df_detalle["fecha_venta"] = pd.to_datetime(df_detalle["fecha_venta"], format="%d/%m/%Y")
+    df_detalle["mes"] = df_detalle["fecha_venta"].dt.strftime("%Y-%m")
+    df_detalle["archivo_origen"] = os.path.basename(ruta_pdf)
 
-    return df_factura
+    return df_detalle
