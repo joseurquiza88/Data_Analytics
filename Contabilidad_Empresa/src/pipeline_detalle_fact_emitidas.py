@@ -8,7 +8,6 @@ from src.tests import test_detalle_fact_emitidas
 # Path local
 CARPETA_EXCEL = Path("data/raw/facturas")
 
-
 def pipeline_detalle_fact_emitidas():
     archivos = sorted(CARPETA_EXCEL.glob("*.pdf"))
     for archivo in archivos:
