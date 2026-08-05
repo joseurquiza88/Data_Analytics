@@ -5,7 +5,7 @@ from src.transform import transformar_detalle_fact_emitidas
 from src.load import cargar_detalle_fact_emitidas
 from src.tests import test_detalle_fact_emitidas
 
-
+# Path local
 CARPETA_EXCEL = Path("data/raw/facturas")
 
 
@@ -16,7 +16,6 @@ def pipeline_detalle_fact_emitidas():
         # Extract
         df= extraer_detalle_fact_emitidas(archivo)
         df_detalle_fact_emitidas = extraer_detalle_fact_emitidas(archivo)
-
         print(df_detalle_fact_emitidas)
         print(df_detalle_fact_emitidas.columns)
         print("Cantidad registros:", len(df_detalle_fact_emitidas))

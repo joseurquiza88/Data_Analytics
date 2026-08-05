@@ -177,3 +177,12 @@ SELECT * FROM detalle_fact_emitidas;
 DELETE FROM detalle_fact_emitidas
 WHERE fecha_venta >= '2026-07-01'
 AND fecha_venta < '2026-08-01';
+
+
+-- Faltan tablas relacionadas a:
+-- Productos.
+-- Stock.
+-- Ventas.
+-- Compras.
+-- Clientes.
+-- Proveedores.
