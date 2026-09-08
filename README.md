@@ -166,6 +166,8 @@ contabilidad_empresa/
 - Git
 - GitHub
 
+## Contenedores
+- Docker
 ---
 
 ## Ejemplo de dashboard
