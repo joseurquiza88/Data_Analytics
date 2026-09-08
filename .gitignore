@@ -4,3 +4,29 @@ Contabilidad_Empresa/data
 #Otros proyectos que estan en la carpeta
 E-Commerce Business Analysis
 Proyecto_Titanic
+# Python
+Contabilidad_Empresa/__pycache__/
+Contabilidad_Empresa/*.py[cod]
+Contabilidad_Empresa/.venv/
+Contabilidad_Empresa/venv/
+
+# Jupyter
+Contabilidad_Empresa/.ipynb_checkpoints/
+
+# Environment variables
+Contabilidad_Empresa/.env
+Contabilidad_Empresa/.env.*
+
+# Datos
+Contabilidad_Empresa/data/
+
+# Docker logs
+Contabilidad_Empresa/*.log
+
+# VS Code
+Contabilidad_Empresa/.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/

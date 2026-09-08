@@ -1,0 +1,7 @@
+{
+    "name": "data_analytics",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "python",
+    "workspaceFolder": "/app/Contabilidad_Empresa",
+    "shutdownAction": "none"
+}

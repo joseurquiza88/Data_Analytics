@@ -1,15 +1,9 @@
-# Python V 3.12.10
-scipy
-scikit-learn
-rasterio
-geopandas
-shapely
-folium
+pandas
 numpy
 matplotlib
-rioxarray
-xarray
-statsmodels
-seaborn
-plotly
-kagglehub
+jupyter
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pdfplumber
+openpyxl

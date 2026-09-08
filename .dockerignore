@@ -1,0 +1,12 @@
+ .git
+.gitignore
+
+.env
+**/.env
+
+Contabilidad_Empresa/data/
+Contabilidad_Empresa/logs/
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

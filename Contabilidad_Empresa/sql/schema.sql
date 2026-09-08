@@ -38,48 +38,48 @@ CREATE TABLE movimientos_bancarios (
 -- DROP TABLE archivos_procesados;
 -- DROP TABLE movimientos_bancarios;
 
-SELECT * FROM archivos_procesados;
-SELECT
-    column_name,
-    data_type
-FROM information_schema.columns
-WHERE table_name = 'movimientos_bancarios';
+-- SELECT * FROM archivos_procesados;
+-- SELECT
+--     column_name,
+--     data_type
+-- FROM information_schema.columns
+-- WHERE table_name = 'movimientos_bancarios';
 
--- Para hacer pruebas
-DELETE FROM movimientos_bancarios
-WHERE EXTRACT(YEAR FROM fecha) = 2026;
+-- -- Para hacer pruebas
+-- DELETE FROM movimientos_bancarios
+-- WHERE EXTRACT(YEAR FROM fecha) = 2026;
 
-DELETE FROM movimientos_bancarios
-WHERE archivo_origen = '01-2026_banco.pdf'
+-- DELETE FROM movimientos_bancarios
+-- WHERE archivo_origen = '01-2026_banco.pdf'
 
 
-SELECT MIN(mes) AS mes_inicio, MAX(mes) AS mes_fin
-FROM movimientos_bancarios
+-- SELECT MIN(mes) AS mes_inicio, MAX(mes) AS mes_fin
+-- FROM movimientos_bancarios
 
-SELECT COUNT(*) 
-FROM movimientos_bancarios;
+-- SELECT COUNT(*) 
+-- FROM movimientos_bancarios;
 
-SELECT DISTINCT archivo_origen
-FROM movimientos_bancarios;
+-- SELECT DISTINCT archivo_origen
+-- FROM movimientos_bancarios;
 
-SELECT current_database();
+-- SELECT current_database();
 
-SELECT *
-FROM movimientos_bancarios
-ORDER BY fecha_carga DESC
-LIMIT 10;
+-- SELECT *
+-- FROM movimientos_bancarios
+-- ORDER BY fecha_carga DESC
+-- LIMIT 10;
 
-SELECT mes, COUNT(*) AS cantidad_movimientos
-FROM movimientos_bancarios
-GROUP BY mes
-ORDER BY mes;
+-- SELECT mes, COUNT(*) AS cantidad_movimientos
+-- FROM movimientos_bancarios
+-- GROUP BY mes
+-- ORDER BY mes;
 
-SELECT COUNT(*) 
-FROM movimientos_bancarios
-WHERE fecha IS NULL;
+-- SELECT COUNT(*) 
+-- FROM movimientos_bancarios
+-- WHERE fecha IS NULL;
 
-SELECT COUNT(*)
-FROM movimientos_bancarios;
+-- SELECT COUNT(*)
+-- FROM movimientos_bancarios;
 
 -- ####################################################
 -- FACTURA EMITIDAS Y RECIBIDAS
@@ -136,13 +136,13 @@ CREATE TABLE fact_emitidas (
     archivo_origen TEXT NOT NULL
 );
 
-drop table fact_emitidas;
-drop table fact_recibidas;
+-- drop table fact_emitidas;
+-- drop table fact_recibidas;
 
-DELETE FROM fact_recibidas
-WHERE EXTRACT(YEAR FROM fecha) = 2026;
-DELETE FROM fact_emitidas
-WHERE EXTRACT(YEAR FROM fecha) = 2026;
+-- DELETE FROM fact_recibidas
+-- WHERE EXTRACT(YEAR FROM fecha) = 2026;
+-- DELETE FROM fact_emitidas
+-- WHERE EXTRACT(YEAR FROM fecha) = 2026;
 
 
 
@@ -170,13 +170,13 @@ CREATE TABLE detalle_fact_emitidas (
     fecha_procesamiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     archivo_origen TEXT NOT NULL
 );
-drop table productos_vendidos;
-SELECT * FROM detalle_fact_emitidas;
+-- drop table productos_vendidos;
+-- SELECT * FROM detalle_fact_emitidas;
 
-SELECT * FROM detalle_fact_emitidas;
-DELETE FROM detalle_fact_emitidas
-WHERE fecha_venta >= '2026-07-01'
-AND fecha_venta < '2026-08-01';
+-- SELECT * FROM detalle_fact_emitidas;
+-- DELETE FROM detalle_fact_emitidas
+-- WHERE fecha_venta >= '2026-07-01'
+-- AND fecha_venta < '2026-08-01';
 
 
 -- Faltan tablas relacionadas a:
