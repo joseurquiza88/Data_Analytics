@@ -34,7 +34,29 @@ Desarrollo de un sistema para integrar y procesar información contable provenie
 🔗 [Ver proyecto](Contabilidad_Empresa)
 
 ---
+### 🛒 E-commerce Customer Behavior & Sales Analysis
+**SQL · Python · Jupyter Notebook · Scikit-learn**
 
+Análisis exploratorio de datos de e-commerce para identificar patrones de facturación y comportamiento de compra, explorar diferencias entre segmentos de clientes e investigar qué variables podrían estar relacionadas con la recompra. Incluye consultas SQL, visualizaciones y una exploración inicial de modelos de clasificación.
+
+**Estado:** Análisis exploratorio realizado.
+
+🔗 [Ver proyecto](E-Commerce_business_analysis)
+
+
+
+---
+
+### 📦 E-Commerce Returns Analysis
+**Python · SQL · Power BI**
+
+Análisis de datos de e-commerce para identificar factores asociados a las devoluciones de productos. Incluye análisis exploratorio, consultas SQL para comparar tasas de devolución según características de clientes, productos y pedidos, y desarrollo de un dashboard interactivo en Power BI para generar recomendaciones de negocio.
+
+**Estado:** En desarrollo.
+
+🔗 [Ver proyecto](ecommerce-returns-analysis)
+
+---
 ### 📓 Notebooks de análisis y experimentación
 **Python · Jupyter Notebook**
 
