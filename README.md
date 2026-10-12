@@ -29,12 +29,18 @@ Desarrollar y documentar proyectos que integren análisis de datos, visualizaci�
 
 Desarrollo de un sistema para integrar y procesar información contable proveniente de tickets, resúmenes bancarios y registros financieros. Incluye automatización de la extracción, transformación y validación de datos, almacenamiento en PostgreSQL, consultas analíticas y visualización de indicadores financieros.
 
-**Estado:** En desarrollo.
+**Estado:** En continuo desarrollo.
 
 🔗 [Ver proyecto](Contabilidad_Empresa)
 
 ---
 
+### 📓 Notebooks de análisis y experimentación
+**Python · Jupyter Notebook**
 
----
+Colección de notebooks independientes para realizar análisis exploratorios, probar técnicas de procesamiento de datos y experimentar con distintas herramientas y métodos. Cada notebook aborda un ejercicio o problema puntual, sin estar necesariamente vinculado a un proyecto más amplio.
+
+**Estado:** En desarrollo continuo.
+
+🔗 [Ver notebooks](Notebooks_varias)
 
