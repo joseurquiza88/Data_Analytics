@@ -31,7 +31,7 @@ Desarrollo de un sistema para integrar y procesar información contable provenie
 
 **Estado:** En desarrollo.
 
-🔗 [Ver proyecto](./contabilidad_empresa/)
+🔗 [Ver proyecto](Contabilidad_Empresa)
 
 ---
 
