@@ -1,4 +1,5 @@
-![Banner del proyecto](/Contabilidad_Empresa/img/banner_finanzas.png)
+<img width="1380" height="300" alt="banner_data" src="https://github.com/user-attachments/assets/a49aab92-0171-4c2d-8154-050efeff24ff" />
+
 
 ## 📌 Descripción del proyecto
 
