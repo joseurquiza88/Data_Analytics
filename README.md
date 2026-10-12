@@ -1,186 +1,40 @@
+
+
 <img width="1380" height="300" alt="banner_data" src="https://github.com/user-attachments/assets/a49aab92-0171-4c2d-8154-050efeff24ff" />
 
+# Data Analytics Portfolio
+Portfolio de proyectos de análisis de datos, Business Intelligence e ingeniería de datos. Incluye proyectos aplicados a problemas reales y casos de estudio para explorar distintas etapas del ciclo de vida de los datos: desde la extracción y transformación hasta el análisis, la visualización y la generación de indicadores para la toma de decisiones.
 
-## 📌 Descripción del proyecto
 
-Este proyecto consiste en el desarrollo de un sistema de integración, procesamiento y análisis de información contable de una empresa.
+## 🎯 Objetivo del portfolio
 
-El objetivo principal es transformar información dispersa y en diferentes formatos (imágenes, archivos PDF y registros contables) en datos estructurados, centralizados y disponibles para análisis.
+Desarrollar y documentar proyectos que integren análisis de datos, visualización e ingeniería de datos, con foco en resolver problemas concretos y transformar datos en información útil para la toma de decisiones en diversos ambitos.
 
-La solución implementa un flujo completo de datos (**ETL - Extract, Transform, Load**) que permite automatizar tareas manuales, mejorar la calidad de la información y facilitar la toma de decisiones basada en datos.
 
----
 
-## 🎯 Objetivos del proyecto
+## 🛠️ Tecnologías
 
-- Extraer información desde diferentes fuentes de datos.
-- Automatizar la lectura de tickets mediante técnicas de OCR que provienen de fotos
-- Extraer movimientos bancarios desde documentos PDFs.
-- Procesar y limpiar información utilizando Python.
-- Diseñar un modelo de datos relacional.
-- Centralizar la información en una base de datos PostgreSQL.
-- Realizar análisis mediante consultas SQL.
-- Construir dashboards interactivos para seguimiento financiero.
-- Desarrollar una aplicación web para consulta y procesamiento de información.
+- **Lenguajes:** Python y R
+- **Análisis y procesamiento:** Pandas, NumPy
+- **Bases de datos:** PostgreSQL, MySQL, BigQuery
+- **Business Intelligence:** Power BI, Looker Studio,
+- **Ingeniería de datos:** ETL/ELT, APIs, Docker
+- **Visualización y aplicaciones:** Streamlit, Matplotlib, Plotly
 
----
 
-# 🏗️ Arquitectura del sistema
+## 📂 Proyectos
 
-![Arquitectura del pipeline](images/arquitectura_pipeline.png)
+### 💰 Sistema de gestión contable y analítica financiera
+**Python · SQL · PostgreSQL · Power BI · Streamlit · Docker**
 
-El flujo general del proyecto es:
+Desarrollo de un sistema para integrar y procesar información contable proveniente de tickets, resúmenes bancarios y registros financieros. Incluye automatización de la extracción, transformación y validación de datos, almacenamiento en PostgreSQL, consultas analíticas y visualización de indicadores financieros.
 
-```text
-Fuentes de información
-        │
-        │
-        ▼
-Extracción de datos
-(OCR (imagenes/fotos) / PDF Parsing / Archivos contables (.xls))
-        │
-        ▼
-Procesamiento y transformación
-(Python - Pandas)
-        │
-        ▼
-Validación y limpieza
-        │
-        ▼
-Base de datos PostgreSQL
-        │
-        ├──────────────► Consultas analíticas SQL
-        │
-        ├──────────────► Dashboards Power BI
-        │
-        └──────────────► Aplicación Streamlit
-```
+**Estado:** En desarrollo.
+
+🔗 [Ver proyecto](./contabilidad_empresa/)
 
 ---
 
-# 📂 Fuentes de información
-
-El sistema integra información proveniente de diferentes fuentes:
-
-### 🧾 Tickets
-
-Documentos en formato imagen procesados mediante técnicas de OCR para extraer información como:
-
-- Fecha.
-- Número de comprobante.
-- Razón social.
-- CUIT.
-- Importes.
-- Impuestos.
-- Total de la operación.
 
 ---
 
-### 🏦 Resúmenes bancarios
-
-Archivos PDF procesados para obtener información de movimientos:
-
-- Fecha.
-- Comprobante.
-- Descripción del movimiento.
-- Débitos.
-- Créditos.
-- Saldo disponible.
-
----
-
-### 📑 Información contable
-
-Registros financieros utilizados para complementar el análisis y generar indicadores de seguimiento.
-
----
-# 📁 Estructura del proyecto
-
-```text
-contabilidad_empresa/
-
-├── app/
-│   ├── app.py             # app de streamlit
-│   └── style.css          # Estilos
-│
-├── data/
-│   ├── raw/                # Datos originales
-│   └── processed/          # Datos procesados
-│ 
-├── img/
-│
-├── notebooks/
-│   ├── analisis_movimientos_bancarios.ipynb      
-│   ├── contabilidad_mensual.ipynb      
-│   ├── estructuracion_base_datos.ipynb     
-│   ├── movimientos_bancarios.ipynb     
-│   ├── prueba_pipeline.ipynb    
-│   └── ticketss.ipynb
-│
-├── PowerBI/
-│   └── Insight_relevantes.pbix
-│
-├── sql/
-│   └── schema.sql
-├── src/
-│   ├── conexion.py         # Extracción de información
-│   ├── extract.py          # Extracción de información
-│   ├── load.py             # Carga a PostgreSQL
-│   ├── main.py             # archivo principal del pipeline completo
-│   ├── pipeline_facturas.py          
-│   ├── pipeline_movBancarios.py          
-│   ├── test.py             # Testeos previo a la carga
-│   └── transform.py        # Transformacion de datos
-│
-└── README.md
-```
----
-# 🛠️ Tecnologías utilizadas
-
-## Lenguajes
-
-- Python
-- SQL
-
-## Procesamiento y análisis de datos
-
-- Pandas
-- NumPy
-
-## Extracción de información
-
-- OpenCV
-- Tesseract OCR
-- pdfplumber
-
-## Base de datos
-
-- PostgreSQL
-
-## Visualización
-
-- Power BI
-- Streamlit
-
-## Desarrollo
-
-- Git
-- GitHub
-
-## Contenedores
-- Docker
----
-
-## Ejemplo de dashboard
-
-
-<img src="Contabilidad_Empresa/img/app-streamlit.PNG" width="600">
----
-
-#### 🚧 Estado del proyecto
-
-Actualmente el proyecto se encuentra en desarrollo.
-
-#### 📌 Próximamente
-
-Este proyecto continuará evolucionando hacia una solución completa de analítica financiera, incorporando automatización, mejores prácticas de ingeniería de datos y herramientas de visualización para soporte a la toma de decisiones.
