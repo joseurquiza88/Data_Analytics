@@ -10,7 +10,7 @@ El análisis sigue un flujo de trabajo orientado a un caso de negocio real, comb
 
 ---
 
-## 🎯 Problema de negocio
+## 🎯 Problema de negocionegocio
 
 Una empresa de comercio electrónico busca reducir la cantidad de productos devueltos, pero no conoce con claridad cuáles son los factores que están asociados a las devoluciones.
 
