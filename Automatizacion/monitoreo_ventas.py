@@ -11,13 +11,41 @@ from textwrap import dedent
 # 1. Configuración de la conexión
 load_dotenv()
 
-url = URL.create(
-    drivername="postgresql+psycopg",
-    username=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    host=os.getenv("DB_HOST", "localhost"),
-    port=int(os.getenv("DB_PORT", "5432")),
-    database=os.getenv("DB_NAME", "olist"),)
+# url = URL.create(
+#     drivername="postgresql+psycopg",
+#     username=os.getenv("DB_USER"),
+#     password=os.getenv("DB_PASSWORD"),
+#     host=os.getenv("DB_HOST", "localhost"),
+#     port=int(os.getenv("DB_PORT", "5432")),
+#     database=os.getenv("DB_NAME", "olist"),)
+
+# engine = create_engine(url)
+
+
+# 1. Configuración de la conexión
+load_dotenv()
+
+usar_supabase = os.getenv("USE_SUPABASE", "false").lower() == "true"
+
+if usar_supabase:
+    url = URL.create(
+        drivername="postgresql+psycopg",
+        username=os.getenv("SUPABASE_DB_USER"),
+        password=os.getenv("SUPABASE_DB_PASSWORD"),
+        host=os.getenv("SUPABASE_HOST"),
+        port=int(os.getenv("SUPABASE_PORT", "6543")),
+        database=os.getenv("SUPABASE_DB_NAME", "postgres"),
+        query={"sslmode": "require"},
+    )
+else:
+    url = URL.create(
+        drivername="postgresql+psycopg",
+        username=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST", "localhost"),
+        port=int(os.getenv("DB_PORT", "5432")),
+        database=os.getenv("DB_NAME", "olist"),
+    )
 
 engine = create_engine(url)
 
