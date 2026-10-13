@@ -1,0 +1,25 @@
+name: Monitoreo semanal de ventas
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 11 * * 1"
+
+jobs:
+  monitoreo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r automatizacion/requirements.txt
+
+      - name: Ejecutar monitoreo
+        run: python automatizacion/monitoreo_ventas.py
