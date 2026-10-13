@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependencias
-        run: pip install -r automatizacion/requirements.txt
+        run: pip install -r Automatizacion/requirements.txt
 
       - name: Ejecutar monitoreo
         env:
@@ -34,7 +34,7 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
-        run: python automatizacion/monitoreo_ventas.py
+        run: python Automatizacion/monitoreo_ventas.py
 
 
 
